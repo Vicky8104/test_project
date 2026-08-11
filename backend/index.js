@@ -15,8 +15,6 @@ import adminRoutes from "./routes/adminRoutes.js";
 import fileRoutes from "./routes/fileRoutes.js";
 // import downloadRoutes from "./routes/downloadRoutes.js";
 
-
-
 dotenv.config();
 
 const app = express();
@@ -26,6 +24,12 @@ const allowedOrigins =
   process.env.NODE_ENV === "production"
     ? [process.env.CLIENT_URL_PROD]
     : ["http://localhost:3000"];
+
+
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("CLIENT_URL_PROD:", process.env.CLIENT_URL_PROD);
+console.log("ALLOWED ORIGINS:", allowedOrigins);
+
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -37,6 +41,15 @@ app.use(cors({
   },
   credentials: true
 }));
+
+// app.use(cors({
+//   origin: "https://test-project-peach-kappa.vercel.app",
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+
+app.options("*", cors());
 
 app.use(cookieParser()); // 🔥 MUST
 
