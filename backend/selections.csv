@@ -1,0 +1,5 @@
+"sno","name","employeeId","post","area","subject","meritNo","rollNo","selCategory","splCategory","teamNumber","dvDate","shift","status","islocked","selectedSchools","pdfUrl","mobile"
+"1","VICKY","RJTO201136026559","SENIOR TEACHER","NT","SANSKRIT","1","123456","OBC_SANS","-",1,"8/5/26","2","Pending","false","","","8104000905"
+"2","VICKY","RJTO201136026559","SENIOR TEACHER","NT","HINDI","1","123456","OBC_SANS","-",1,"8/5/26","2","Pending","false","","","8104000905"
+"3","VICKY","RJTO201136026559","TEACHERLEVEL-1","NT","SANSKRIT","1","123456","OBC_SANS","-",1,"8/5/26","2","Pending","false","","","8104000905"
+"4","VICKY","RJTO201136026559","TEACHER LEVEL-2","NT","SANSKRIT","1","123456","OBC_SANS","-",1,"8/5/26","2","Pending","false","","","8104000905"

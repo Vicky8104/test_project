@@ -1,0 +1,109 @@
+.dashboard-container{
+    width:100%;
+    margin-bottom: 100px;
+}
+/* TOP BUTTONS WRAPPER */
+.top-buttons {
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* BUTTON BASE */
+.top-buttons button {
+  background: none;
+  border: none;
+  padding: 10px 2px;
+  font-size: 14px;
+  font-weight: 500;
+  color: hsl(256, 97%, 48%);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+/* HOVER */
+.top-buttons button:hover {
+  color:black;
+}
+
+/* ACTIVE TEXT */
+.top-buttons button.active {
+   color: #fff;
+  background-color: #21f33d;
+  border-radius: 6px;
+
+}
+
+/* UNDERLINE ANIMATION */
+.top-buttons button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0%;
+  background: #3806ee;
+  transition: width 0.3s ease;
+}
+
+/* ACTIVE UNDERLINE */
+.top-buttons button.active::after {
+  width: 100%;
+  background: #2af50f;
+}
+
+/* HOVER UNDERLINE (light) */
+.top-buttons button:hover::after {
+  width: 100%;
+  background: yellow;
+  border-radius: 10px;
+}
+
+.sub-header{
+    margin-bottom: 0;
+}
+.top-buttons button{
+
+    padding:10px 20px;
+    cursor: pointer;
+}
+.report{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.report-cards-container{
+    width: 98%;
+    max-width: 1200px;
+    padding:10px;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:50px;
+    justify-content: center;
+    box-sizing: border-box;
+
+}
+.card{
+    width:100%;
+     max-height: 275px;
+    background: #fff;
+    max-width:250px ;
+    padding:15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.content{
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  .top-buttons {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
