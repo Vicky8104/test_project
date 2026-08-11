@@ -20,10 +20,10 @@ dotenv.config();
 const app = express();
 
 
-// const allowedOrigins =
-//   process.env.NODE_ENV === "production"
-//     ? [process.env.CLIENT_URL_PROD]
-//     : ["http://localhost:3000"];
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? [process.env.CLIENT_URL_PROD]
+    : ["http://localhost:3000"];
 
 
 // console.log("NODE_ENV:", process.env.NODE_ENV);
@@ -31,30 +31,30 @@ const app = express();
 // console.log("ALLOWED ORIGINS:", allowedOrigins);
 
 
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("CORS not allowed"));
-//     }
-//   },
-//   credentials: true
-// }));
-
 app.use(cors({
-  origin: "https://test-project-peach-kappa.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
+  credentials: true
 }));
-app.use((req, res, next) => {
-  console.log("REQUEST:", req.method, req.originalUrl);
-  console.log("ORIGIN:", req.headers.origin);
-  next();
-});
 
-// app.options("*", cors());
+// app.use(cors({
+//   origin: "https://test-project-peach-kappa.vercel.app",
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+// app.use((req, res, next) => {
+//   console.log("REQUEST:", req.method, req.originalUrl);
+//   console.log("ORIGIN:", req.headers.origin);
+//   next();
+// });
+
+app.options("*", cors());
 
 app.use(cookieParser()); // 🔥 MUST
 
