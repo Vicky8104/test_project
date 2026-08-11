@@ -54,7 +54,7 @@ app.use(cors({
 //   next();
 // });
 
-app.options("*", cors());
+// app.options("*", cors());
 
 app.use(cookieParser()); // 🔥 MUST
 
