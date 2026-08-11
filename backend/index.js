@@ -48,6 +48,11 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+app.use((req, res, next) => {
+  console.log("REQUEST:", req.method, req.originalUrl);
+  console.log("ORIGIN:", req.headers.origin);
+  next();
+});
 
 // app.options("*", cors());
 
