@@ -32,7 +32,7 @@ export const createPDF = ({ candidate, selectionData, choices }) => {
           .fontSize(10)
           .font("Helvetica")
           .text(
-            `(Post: ${selectionData.post} | Area: ${selectionData.area} | Subject: ${selectionData.subject} | ${selectionData.meritNo} | ${selectionData.rollNo})`,
+            `(Post: ${selectionData.post} | Area: ${selectionData.area} | Subject: ${selectionData.subject} | ${selectionData.meritNo})`,
             0,
             85,
             { align: "center" }
