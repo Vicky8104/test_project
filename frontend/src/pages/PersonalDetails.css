@@ -25,6 +25,18 @@
   gap: 15px;
   align-items: center;
 }
+.form-grid1 {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+  grid-template-columns: 150px 1fr;
+  gap: 15px;
+  align-items: center;
+  margin-top:15px;
+}
+
+
 
 .school-form-grid {
   display: grid;
