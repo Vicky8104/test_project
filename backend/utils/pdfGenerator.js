@@ -93,26 +93,24 @@ export const createPDF = ({ candidate, selectionData, choices }) => {
         y += gap;
       };
 
-      // row("Post & Area", selectionData.post, "Area", selectionData.area);
-      // row("Subject", selectionData.subject, "Merit No", selectionData.meritNo);
-      // row("Roll No", selectionData.rollNo, "", "");
-
+      // row("Post & Area", `${selectionData.post} & ${selectionData.area}`,"Subject", selectionData.subject);
+      // row("Merit No", selectionData.meritNo,"Roll No", selectionData.rollNo);
       // row("Name", candidate.name, "Father Name", candidate.fatherName);
       // row("DOB", candidate.dob, "Gender", candidate.gender);
       // row("Marital Status", candidate.maritalStatus, "Home District", candidate.homeDistrict);
       // row("Category", candidate.category, "Selection Category", selectionData.selCategory);
       // row("Special Category", selectionData.splCategory, "Mobile No", candidate.mobile);
-      // row("Email", candidate.email, "", "");
-      // row("If Other", candidate.ifOther, "", "");
+      // row("Eployee Id", candidate.employeeId,"", "");
+      // row("If Other", candidate.ifOther,"","");
 
       row("Post & Area", `${selectionData.post} & ${selectionData.area}`,"Subject", selectionData.subject);
-      row("Merit No", selectionData.meritNo,"Roll No", selectionData.rollNo);
+      row("Eployee Id", candidate.employeeId,"Merit No", selectionData.meritNo);
       row("Name", candidate.name, "Father Name", candidate.fatherName);
       row("DOB", candidate.dob, "Gender", candidate.gender);
       row("Marital Status", candidate.maritalStatus, "Home District", candidate.homeDistrict);
-      row("Category", candidate.category, "Selection Category", selectionData.selCategory);
-      row("Special Category", selectionData.splCategory, "Mobile No", candidate.mobile);
-      row("Eployee Id", candidate.employeeId,"", "");
+      row("Category", candidate.category,"Special Category", selectionData.splCategory);
+      row( "Mobile No", candidate.mobile, "", "");
+      row("Present School", selectionData.rollNo,"", "");
       row("If Other", candidate.ifOther,"","");
 
       // ✅ DRAW BOX AFTER CONTENT (FIX)
