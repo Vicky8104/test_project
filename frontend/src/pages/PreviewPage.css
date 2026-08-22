@@ -27,6 +27,13 @@ display: grid;
   align-items: center;
   margin-bottom: 25px;
 }
+.preview-school-grid{
+display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+}
 .school-form-grid{
   margin: auto;
 width:auto;
