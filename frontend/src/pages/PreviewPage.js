@@ -121,10 +121,12 @@
 //                     <h2>Personal Details</h2>
 
 //                     <div className="form-grid">
-//                         <div className="form-group">
-//                             <label>Roll No :</label>
-//                             <input value={selectionData?.rollNo || ""} readOnly />
+                        
+//                          <div className="form-group">
+//                             <label>Employee Id :</label>
+//                             <input value={candidate?.employeeId || ""} readOnly />
 //                         </div>
+
 
 //                         <div className="form-group">
 //                             <label>Merit No :</label>
@@ -166,24 +168,29 @@
 //                             <input value={candidate?.category || ""} readOnly />
 //                         </div>
 
-//                         <div className="form-group">
+//                         {/* <div className="form-group">
 //                             <label>Selection Category :</label>
 //                             <input value={selectionData?.selCategory || ""} readOnly />
-//                         </div>
+//                         </div> */}
 
 //                         <div className="form-group">
 //                             <label>Special Category :</label>
 //                             <input value={selectionData?.splCategory || ""} readOnly />
 //                         </div>
 
-//                         <div className="form-group">
-//                             <label>Employee Id :</label>
-//                             <input value={candidate?.employeeId || ""} readOnly />
-//                         </div>
+                       
 
 //                         <div className="form-group">
 //                             <label>Mobile :</label>
 //                             <input value={candidate?.mobile || ""} readOnly />
+//                         </div>
+
+                        
+//                     </div>
+//                     <div className="form-grid1">
+//                         <div className="form-group">
+//                             <label>Present School :</label>
+//                             <input value={selectionData?.rollNo || ""} readOnly />
 //                         </div>
 
 //                         <div className="form-group">
@@ -228,8 +235,6 @@
 //         </div>
 //     );
 // }
-
-
 
 
 
@@ -279,24 +284,28 @@ export default function PreviewPage() {
             setLoading(true);
 
             // ✅ Convert IDs → School Names
-            const selectedSchoolNames = safeChoices.map((id) => {
-                const school = safeSchools.find((s) => s._id === id);
-                return school?.schoolName || "Unknown";
-            });
-
-            // console.log("Sending Data:", {
-            //     selectionId,
-            //     candidate,
-            //     selectionData,
-            //     schools,
-            //     choices: selectedSchoolNames
+            // const selectedSchoolNames = safeChoices.map((id) => {
+            //     const school = safeSchools.find((s) => s._id === id);
+            //     return school?.schoolName || "Unknown";
             // });
+
+            const schoolMap = new Map(
+                safeSchools.map((school)=>[
+                    String(school._id),
+                    school.schoolName || school.name || "Unknown"
+                ])
+            );
+
+            const selectedSchoolNames = safeChoices.map((id)=>
+                schoolMap.get(String(id)) || "Unknow"
+            );
+  
 
             const res = await API.post("/final-submit", {
                 selectionId,
                 candidate,
                 selectionData,
-                schools,
+                
                 choices: selectedSchoolNames
             });
 
@@ -439,7 +448,7 @@ export default function PreviewPage() {
                 <div className="preview-school-detail">
                     <h2>Selected Schools</h2>
 
-                    <div className="school-form-grid">
+                    <div className="preview-school-grid">
                         {safeChoices.map((id, index) => {
                             const school = safeSchools.find(s => s._id === id);
 
@@ -470,6 +479,7 @@ export default function PreviewPage() {
         </div>
     );
 }
+
 
 
 
