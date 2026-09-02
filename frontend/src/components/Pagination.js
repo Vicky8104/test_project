@@ -5,7 +5,6 @@ export default function Pagination({
     page,
     totalPages,
     totalUsers,
-    limit,
     onPageChange,
 }) {
     // =====================================================
@@ -27,10 +26,7 @@ export default function Pagination({
         0
     );
 
-    const safeLimit = Math.max(
-        Number(limit) || 20,
-        1
-    );
+
 
     // =====================================================
     // PAGE INPUT
