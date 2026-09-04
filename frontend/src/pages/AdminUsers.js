@@ -449,38 +449,24 @@ export default function AdminUser() {
                 HEADER
             ================================================= */}
 
-            <div className="admin-header">
 
                 <h2>
-                    Users
+                    User Management
                 </h2>
 
-                <button
-                    className="add-user-btn"
-                    onClick={() =>
-                        setAddUser({
-                            name: "",
-                            employeeId: "",
-                            password: "",
-                            role: "",
-                            mobile: "",
-                        })
-                    }
-                >
-                    + Add User
-                </button>
+                
 
-            </div>
+            
 
             {/* =================================================
                 SEARCH
             ================================================= */}
 
-            <div className="admin-search-container">
+            <div className="user-search-container">
 
                 {/* SEARCH FIELD */}
 
-                <div className="search-radio-group">
+                <div className="search-fields">
 
                     <label>
                         <input
@@ -600,6 +586,21 @@ export default function AdminUser() {
                         </button>
                     )}
 
+               <button
+                    className="add-user-btn"
+                    onClick={() =>
+                        setAddUser({
+                            name: "",
+                            employeeId: "",
+                            password: "",
+                            role: "",
+                            mobile: "",
+                        })
+                    }
+                >
+                    + Add User
+                </button>
+
                 </div>
 
             </div>
@@ -699,7 +700,7 @@ export default function AdminUser() {
 
                                         <td>
 
-                                            <div className="admin-action-buttons">
+                                            <div className="action-buttons">
 
                                                 <button
                                                     type="button"
@@ -803,13 +804,14 @@ export default function AdminUser() {
 
             {viewUser && (
 
-                <div className="admin-modal-overlay">
+                <div className="admin-user-modal">
 
-                    <div className="admin-modal">
+                    <div className="admin-user-card">
 
                         <h3>
                             User Details
                         </h3>
+                <div className="admin-user-card-content">
 
                         <div className="row">
                             <label>
@@ -872,10 +874,12 @@ export default function AdminUser() {
                         >
                             Close
                         </button>
+                                </div>
 
                     </div>
 
                 </div>
+
 
             )}
 
