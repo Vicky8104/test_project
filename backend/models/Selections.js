@@ -85,6 +85,8 @@ const selectionSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
+selectionSchema.index({ candidateId: 1 });
+
 // module.exports = mongoose.model("Selections", selectionSchema);
 
 
