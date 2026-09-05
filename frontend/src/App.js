@@ -7,7 +7,8 @@ import { AuthProvider } from "./context/AuthContext";
 import Loader from "./components/Loader";
 
 // Pages - Lazy Loading
-const LandingPage = lazy(() => import("./pages/LandingPage"));
+// const LandingPage = lazy(() => import("./pages/LandingPage"));
+import LandingPage from "./pages/LandingPage";
 const Login = lazy(() => import("./pages/LoginPage"));
 const CandidateDashboard = lazy(() => import("./pages/CandidateDashboard"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
