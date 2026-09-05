@@ -1,65 +1,104 @@
-// App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
 import MainLayout from "./components/MainSection";
-import LandingPage from "./pages/LandingPage";
-import Login from "./pages/LoginPage";
-import CandidateDashboard from "./pages/CandidateDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
-import TeamDashboard from "./pages/TeamDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-import PersonalDetail from "./pages/PersonalDetails";
-import SchoolChoice from "./pages/SchoolChoice";
-import PreviewPage from "./pages/PreviewPage";
-import DownloadPage from "./pages/DownloagPage";
-import DownloadTable from "./pages/DownloadTable";
+import Loader from "./components/Loader";
+
+// Pages - Lazy Loading
+const LandingPage = lazy(() => import("./pages/LandingPage"));
+const Login = lazy(() => import("./pages/LoginPage"));
+const CandidateDashboard = lazy(() => import("./pages/CandidateDashboard"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const TeamDashboard = lazy(() => import("./pages/TeamDashboard"));
+const PersonalDetail = lazy(() => import("./pages/PersonalDetails"));
+const SchoolChoice = lazy(() => import("./pages/SchoolChoice"));
+const PreviewPage = lazy(() => import("./pages/PreviewPage"));
+const DownloadPage = lazy(() => import("./pages/DownloagPage"));
+const DownloadTable = lazy(() => import("./pages/DownloadTable"));
 
 function App() {
   return (
     <AuthProvider>
-    <BrowserRouter>
-      <Routes>
+      <BrowserRouter>
 
-        {/* Layout Wrap */}
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<LandingPage />} />
-          <Route path="login" element={<Login />} />
-          <Route
-            path="candidate"   // ✅ FIXED
-            element={
-              <ProtectedRoute role="candidate">
-                <CandidateDashboard />
-              </ProtectedRoute>
-            }
-          />
+        <Suspense fallback={<Loader />}>
 
-          <Route
-            path="admin"   // ✅ FIXED
-            element={
-              <ProtectedRoute role="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
+          <Routes>
 
-          <Route
-            path="team"   // ✅ FIXED
-            element={
-              <ProtectedRoute role="team">
-                <TeamDashboard />
-              </ProtectedRoute>
-            }
-          />
+            {/* Layout Wrap */}
+            <Route path="/" element={<MainLayout />}>
 
-          <Route path="/personal-details" element={<PersonalDetail />} />
-          <Route path="/school-choice" element={<SchoolChoice />} />
-          <Route path="/preview" element={<PreviewPage />} />
-          <Route path="/download" element={<DownloadPage />} />
-          <Route path="/downloadFile" element={<DownloadTable />} />
-        </Route>
+              <Route
+                index
+                element={<LandingPage />}
+              />
 
-      </Routes>
-    </BrowserRouter>
+              <Route
+                path="login"
+                element={<Login />}
+              />
+
+              <Route
+                path="candidate"
+                element={
+                  <ProtectedRoute role="candidate">
+                    <CandidateDashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="admin"
+                element={
+                  <ProtectedRoute role="admin">
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="team"
+                element={
+                  <ProtectedRoute role="team">
+                    <TeamDashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="personal-details"
+                element={<PersonalDetail />}
+              />
+
+              <Route
+                path="school-choice"
+                element={<SchoolChoice />}
+              />
+
+              <Route
+                path="preview"
+                element={<PreviewPage />}
+              />
+
+              <Route
+                path="download"
+                element={<DownloadPage />}
+              />
+
+              <Route
+                path="downloadFile"
+                element={<DownloadTable />}
+              />
+
+            </Route>
+
+          </Routes>
+
+        </Suspense>
+
+      </BrowserRouter>
     </AuthProvider>
   );
 }
