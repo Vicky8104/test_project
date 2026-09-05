@@ -14,7 +14,7 @@ export default function MainSection() {
         <Header toggleSidebar={() => setIsOpen(!isOpen)} />
     
         
-          <main className="main-content" style={{ padding: "10px" }}>
+          <main className="page-content" style={{ padding: "10px" }}>
 
 
             <Outlet /> {/* Yaha pages change honge */}
