@@ -24,7 +24,6 @@ function App() {
       <BrowserRouter>
 
         <Suspense fallback={<Loader />}>
-
           <Routes>
 
             {/* Layout Wrap */}
