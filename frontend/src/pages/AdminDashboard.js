@@ -135,7 +135,8 @@ export default function AdminDashboard() {
       {/* CONTENT */}
       <div className="content">
 
-        <Suspense fallback={null}>
+        //<Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
 
           {/* REPORTS */}
           {activeTab === "reports" && (
