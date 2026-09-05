@@ -121,7 +121,9 @@ export const getSelections = async (req, res) => {
 
 export const getSelectionWithUser = async (req, res) => {
   try {
-    const selection = await Selections.findById(req.params.id);
+    const selection = await Selections.findById(req.params.id)
+      .populate("candidateId")
+      .lean();
 
     if (!selection) {
       return res.status(404).json({
@@ -129,15 +131,7 @@ export const getSelectionWithUser = async (req, res) => {
       });
     }
 
-    // Candidate fetch
-    const candidate = await Candidate.findById(
-      selection.candidateId
-    );
-
-    return res.json({
-      ...selection.toObject(),
-      candidateId: candidate
-    });
+    return res.json(selection);
 
   } catch (error) {
     console.error("ERROR:", error.message);
