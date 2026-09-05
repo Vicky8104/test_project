@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./LandingPage.css";
 export default function LandingPage() {
 
   const postCards = [
