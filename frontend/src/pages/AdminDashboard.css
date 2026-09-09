@@ -62,8 +62,25 @@
   border-radius: 10px;
 }
 
-.sub-header{
-    margin-bottom: 0;
+.sub-header {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  gap:50px;
+  flex-wrap: wrap;
+   margin-bottom: 20px;
+}
+.sub-header p{
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(10, 231, 202);
+  max-width:450px;
+  padding:10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
 }
 .top-buttons button{
 
