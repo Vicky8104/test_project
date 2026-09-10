@@ -26,7 +26,7 @@
 }
 
 .login-card {
-  width: 100%;
+  
   width:300px;
   max-width: 500px;
   /* Desktop max size */
@@ -74,10 +74,12 @@
 }
 
 .all-main {
+  padding-top: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
+  margin-bottom: 80px;
 }
 .all-main-content {
   margin: auto;
@@ -144,14 +146,10 @@ text-align: justify;
   text-align: right;
 
 }
-
 .instruction-container{
-  width: 100%;
- margin: 0;
   margin-bottom: 30px;
 }
 .inst-wrraper {
-  margin:auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,13 +157,18 @@ text-align: justify;
   gap:30px;
 }
 .first{
-  width:auto;
+  width:800px;
   color:black;
   background-color: aliceblue;
   border:2px dotted black;
   border-radius: 20px;
 }
 
+.second{
+  width:700px;
+  color:black;
+  background-color:beige;
+}
 .inst-list{
   font-size: 20px;
   text-align: justify;
@@ -177,8 +180,6 @@ text-align: justify;
 .mailid{
   color:red;
 }
-
-
 
 @media (max-width: 768px) {
   .all-main{
