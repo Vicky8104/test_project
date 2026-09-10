@@ -156,18 +156,13 @@ text-align: justify;
   gap:30px;
 }
 .first{
-  width:800px;
+  width:1000px;
   color:black;
   background-color: aliceblue;
   border:2px dotted black;
   border-radius: 20px;
 }
 
-.second{
-  width:700px;
-  color:black;
-  background-color:beige;
-}
 .inst-list{
   font-size: 20px;
   text-align: justify;
