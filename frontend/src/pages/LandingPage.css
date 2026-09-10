@@ -156,7 +156,7 @@ text-align: justify;
   gap:30px;
 }
 .first{
-  width:1000px;
+  width:auto;
   color:black;
   background-color: aliceblue;
   border:2px dotted black;
