@@ -78,7 +78,6 @@
   flex-direction: column;
   align-items: center;
   width: 90%;
-  margin-bottom: 80px;
 }
 .all-main-content {
   margin: auto;
@@ -145,11 +144,11 @@ text-align: justify;
   text-align: right;
 
 }
+
 .instruction-container{
-  width: 100%;
+    width: 100%;
  margin: 0;
   margin-bottom: 30px;
-  
 }
 .inst-wrraper {
   display: flex;
@@ -177,6 +176,8 @@ text-align: justify;
 .mailid{
   color:red;
 }
+
+
 
 @media (max-width: 768px) {
   .all-main{
