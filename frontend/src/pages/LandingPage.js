@@ -48,9 +48,8 @@ export default function LandingPage() {
     <>
       <div className="all-main" style={{ textAlign: "center" }}>
 
-        <h1>चतुर्थ श्रेणी सीधी भर्ती 2024 के अन्तर्गत चयनित अभ्यर्थियों के लिए पदस्थापन काउंसलिग फाॅर्म</h1>
-
-        {/* <div className="all-main-content" >
+        <h1>वरिष्ठ अध्यापक (विभिन्न विषय) अधिशेष कार्मिकों हेतु पदस्थापन काउंसलिग फाॅर्म</h1>
+         {/* <div className="all-main-content" >
           <h2>प्राथमिक/उच्च प्राथमिक-विद्यालय-अध्यापक-सीधी भर्ती-2025 अन्तर्गते विज्ञापितपदानां विवरणम्</h2>
 
           <div className="all-main-container" >
@@ -72,8 +71,8 @@ export default function LandingPage() {
             </div>
           </div>
         </div> */}
-        <div className="instruction-container">
-          <h2> Instructions for Candidates</h2>
+         <div className="instruction-container">
+          <h2> Instructions for Counselling Form</h2>
             <div className="first">
               <ol className="inst-list">
                 <li>Login करने के लिए अभ्यर्थी को Login बटन पर Click करना होगा। </li>
