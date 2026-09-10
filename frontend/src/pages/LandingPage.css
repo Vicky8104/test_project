@@ -146,14 +146,12 @@ text-align: justify;
 }
 
 .instruction-container{
-    width: 100%;
- margin: 0;
-  margin-bottom: 30px;
-  text-align:center;
-}
-.inst-wrraper {
   width: 100%;
  margin: 0;
+  margin-bottom: 30px;
+}
+.inst-wrraper {
+  margin:auto;
   display: flex;
   justify-content: center;
   align-items: center;
