@@ -151,6 +151,8 @@ text-align: justify;
   margin-bottom: 30px;
 }
 .inst-wrraper {
+  width: 100%;
+ margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
