@@ -48,11 +48,15 @@ function SchoolDropdown({
      SEARCH FILTER
      ======================================================= */
 
-  const filteredSchools = availableSchools.filter((school) => {
-    const name = getSchoolName(school);
+  const filteredSchools = availableSchools.filter(
+    (school) => {
+      const name = getSchoolName(school);
 
-    return name.toLowerCase().includes(search.toLowerCase());
-  });
+      return name
+        .toLowerCase()
+        .includes(search.toLowerCase());
+    }
+  );
 
   /* =======================================================
      ONLY SHOW VISIBLE SCHOOLS
@@ -68,7 +72,18 @@ function SchoolDropdown({
      ======================================================= */
 
   const handleSelect = (school) => {
-    onChange(index, String(school._id));
+    onChange(index, school._id);
+
+    setOpen(false);
+    setSearch("");
+  };
+
+  /* =======================================================
+     SELECT SCHOOL = BLANK
+     ======================================================= */
+
+  const handleReset = () => {
+    onChange(index, "");
 
     setOpen(false);
     setSearch("");
@@ -105,8 +120,7 @@ function SchoolDropdown({
      ======================================================= */
 
   const selectedSchool = schools.find(
-    (school) =>
-      String(school._id) === String(value)
+    (school) => school._id === value
   );
 
   const selectedSchoolName = selectedSchool
@@ -127,7 +141,6 @@ function SchoolDropdown({
 
       <button
         type="button"
-        id={`choice-${index}`}
         className={`school-dropdown-button ${
           open ? "active" : ""
         }`}
@@ -174,14 +187,28 @@ function SchoolDropdown({
             className="school-dropdown-list"
             onScroll={handleDropdownScroll}
           >
+
+            {/* ==========================================
+                BLANK / SELECT SCHOOL OPTION
+                VALUE = ""
+                ========================================== */}
+
+            <div
+              className="school-option select-school-option"
+              onClick={handleReset}
+            >
+              <span>
+                ------ Select School ------
+              </span>
+            </div>
+
             {displayedSchools.length > 0 ? (
               displayedSchools.map((school) => {
                 const schoolName =
                   getSchoolName(school);
 
                 const isSelected =
-                  String(value) ===
-                  String(school._id);
+                  value === school._id;
 
                 return (
                   <div
@@ -319,15 +346,7 @@ export default function SchoolChoice() {
               Array.isArray(parsed) &&
               parsed.length === data.length
             ) {
-              // Normalize saved values to strings
-              const normalizedChoices =
-                parsed.map((choice) =>
-                  choice
-                    ? String(choice)
-                    : ""
-                );
-
-              setChoices(normalizedChoices);
+              setChoices(parsed);
             } else {
               setChoices(
                 Array(data.length).fill("")
@@ -431,10 +450,13 @@ export default function SchoolChoice() {
      HANDLE CHANGE
      ========================================================= */
 
-  const handleChange = (index, value) => {
+  const handleChange = (
+    index,
+    value
+  ) => {
     const updated = [...choices];
 
-    updated[index] = String(value);
+    updated[index] = value;
 
     setChoices(updated);
 
@@ -455,8 +477,7 @@ export default function SchoolChoice() {
       const selectedElsewhere =
         choices.some(
           (c, i) =>
-            String(c) ===
-              String(school._id) &&
+            c === school._id &&
             i !== currentIndex
         );
 
@@ -471,18 +492,9 @@ export default function SchoolChoice() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    /* ================================================
-       FINAL CHOICES
-       ================================================ */
-
-    const finalChoices = choices.map(
-      (choice) =>
-        choice ? String(choice) : ""
-    );
-
     const emptyIndex =
-      finalChoices.findIndex(
-        (choice) => !choice
+      choices.findIndex(
+        (c) => !c
       );
 
     /* ================================================
@@ -491,9 +503,7 @@ export default function SchoolChoice() {
 
     if (emptyIndex !== -1) {
       alert(
-        `Please select school for Choice ${
-          emptyIndex + 1
-        }`
+        `Please select school for Choice ${emptyIndex + 1}`
       );
 
       /* ==============================================
@@ -519,8 +529,6 @@ export default function SchoolChoice() {
               behavior: "smooth",
               block: "center",
             });
-
-            el.focus();
           }
         }, 100);
 
@@ -541,8 +549,6 @@ export default function SchoolChoice() {
           behavior: "smooth",
           block: "center",
         });
-
-        el.focus();
       }
 
       return;
@@ -554,24 +560,11 @@ export default function SchoolChoice() {
 
     setLoading(true);
 
-    /* ================================================
-       SAVE FINAL NORMALIZED CHOICES
-       ================================================ */
-
-    sessionStorage.setItem(
-      `schoolChoice_${selectionId}`,
-      JSON.stringify(finalChoices)
-    );
-
-    /* ================================================
-       GO TO PREVIEW
-       ================================================ */
-
     navigate("/preview", {
       state: {
         selectionId,
         selectionData,
-        choices: finalChoices,
+        choices,
         schools,
         candidate,
       },
@@ -663,10 +656,13 @@ export default function SchoolChoice() {
                     choice,
                     index
                   ) => (
+
                     <div
                       key={index}
+                      id={`choice-${index}`}
                       className="form-group"
                     >
+
                       <SchoolDropdown
                         index={index}
                         value={
@@ -684,7 +680,9 @@ export default function SchoolChoice() {
                           loading
                         }
                       />
+
                     </div>
+
                   )
                 )}
 
