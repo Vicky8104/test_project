@@ -73,7 +73,7 @@ export default function LandingPage() {
           </div>
         </div> */}
         <div className="instruction-container">
-          <h2> Instructions for Candidates</h2>
+          <h2> Instructions for Counselling Form</h2>
             <div className="first">
               <ol className="inst-list">
                 <li>Login करने के लिए अभ्यर्थी को Login बटन पर Click करना होगा। </li>
