@@ -90,7 +90,7 @@ export default function Header({ toggleSidebar }) {
           <div className="marquee">
             <div className="marquee-container1">
               <div className="marquee-text">
-                📢 Teacher Level-2 English आवेदन की अंतिम तिथि: 10-08-2026 | Teacher Level-2 Hindi आवेदन की अंतिम तिथि: 15-08-2026 | Teacher Level-2 Sci-Maths आवेदन की अंतिम तिथि: 18-08-2026
+                📢 वरिष्ठ अध्यापक (विभिन्न विषय) अधिशेष कार्मिक पदस्थापन काउंसलिग आवेदन की अन्तिम तिथि 30.09.2026 सांय 06ः00 बजे है.
               </div>
             </div>
           </div>
