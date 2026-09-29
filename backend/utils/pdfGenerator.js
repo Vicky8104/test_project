@@ -167,7 +167,7 @@ export const createPDF = ({ candidate, selectionData, choices }) => {
           drawTableHeader();
         }
 
-        doc.font("Helvetica");
+        doc.font("Helvetica").fontSize(8);
 
         doc.rect(colX[0], y, colWidth[0], 25).stroke();
         doc.text(String(i + 1), colX[0] + 25, y + 8);
