@@ -65,7 +65,7 @@ export default function PreviewPage() {
                 selectionId,
                 candidate,
                 selectionData,
-                
+                schools,
                 choices: selectedSchoolNames
             });
 
