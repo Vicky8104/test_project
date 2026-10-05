@@ -46,5 +46,17 @@ const finalSubmissionSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
+finalSubmissionSchema.index(
+  {
+    employeeId: 1,
+    post: 1,
+    area: 1,
+    subject: 1,
+  },
+  {
+    unique: true,
+  }
+);
+
 
 export default mongoose.model("FinalSubmission", finalSubmissionSchema);
