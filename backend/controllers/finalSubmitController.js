@@ -150,21 +150,43 @@ export const finalSubmit = async (req, res) => {
     // ========================================
     // ✅ CLOUDINARY UPLOAD
     // ========================================
-    const upload = await new Promise((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        {
-          resource_type: "raw",
-          folder: "pdfs",
-          public_id: `${selectionData.post}${selectionData.area}${selectionData.subject}${selectionData.rollNo}180711.pdf`,
-        },
-        (err, result) => {
-          if (err) reject(err);
-          else resolve(result);
-        }
-      );
+    // const upload = await new Promise((resolve, reject) => {
+    //   const stream = cloudinary.uploader.upload_stream(
+    //     {
+    //       resource_type: "raw",
+    //       folder: "pdfs",
+    //       public_id: `${selectionData.post}${selectionData.area}${selectionData.subject}${selectionData.rollNo}180711.pdf`,
+    //     },
+    //     (err, result) => {
+    //       if (err) reject(err);
+    //       else resolve(result);
+    //     }
+    //   );
 
-      streamifier.createReadStream(pdfBuffer).pipe(stream);
-    });
+    //   streamifier.createReadStream(pdfBuffer).pipe(stream);
+    // });
+    const pdfPublicId =
+  `submission_${candidate.employeeId}_${selectionId}_${Date.now()}`;
+
+const upload = await new Promise((resolve, reject) => {
+  const stream = cloudinary.uploader.upload_stream(
+    {
+      resource_type: "raw",
+      folder: "pdfs",
+      public_id: pdfPublicId,
+      overwrite: false,
+    },
+    (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    }
+  );
+
+  streamifier.createReadStream(pdfBuffer).pipe(stream);
+});
 
     // ========================================
     // ✅ SAVE FINAL SUBMISSION
