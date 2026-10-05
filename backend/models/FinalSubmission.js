@@ -13,14 +13,19 @@ const finalSubmissionSchema = new mongoose.Schema({
   maritalStatus: String,
   homeDistrict: String,
   category: String,
-  employeeId: String,
+  employeeId: {
+  type: String,
+  required: true,
+  uppercase: true,
+  trim: true,
+},
   mobile: String,
   ifOther: String,
   candidateId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Candidate",
   },
-  employeeId: String,
+ 
   post: String,
   area: String,
   subject: String,
