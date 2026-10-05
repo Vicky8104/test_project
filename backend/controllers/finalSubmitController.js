@@ -166,7 +166,7 @@ export const finalSubmit = async (req, res) => {
     //   streamifier.createReadStream(pdfBuffer).pipe(stream);
     // });
     const pdfPublicId =
-  `submission_${candidate.employeeId}_${selectionId}_${Date.now()}`;
+  `submission_${candidate.employeeId}_${selectionId}_${Date.now()}.pdf`;
 
 const upload = await new Promise((resolve, reject) => {
   const stream = cloudinary.uploader.upload_stream(
