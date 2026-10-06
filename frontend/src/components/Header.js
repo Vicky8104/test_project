@@ -90,7 +90,7 @@ export default function Header({ toggleSidebar }) {
           <div className="marquee">
             <div className="marquee-container1">
               <div className="marquee-text">
-                📢 वरिष्ठ अध्यापक (विभिन्न विषय) अधिशेष कार्मिक पदस्थापन काउंसलिग आवेदन की अन्तिम तिथि 01.10.2026 सांय 06ः00 बजे है.
+                📢 वरिष्ठ अध्यापक (विभिन्न विषय) अधिशेष कार्मिक पदस्थापन काउंसलिग आवेदन की अन्तिम तिथि 06.10.2026 सांय 06ः00 बजे है.
               </div>
             </div>
           </div>
